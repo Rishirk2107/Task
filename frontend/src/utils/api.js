@@ -5,8 +5,13 @@ const getAuthHeader = () => {
   return token ? { Authorization: `Bearer ${token}` } : {};
 };
 
-export const fetchTasks = async () => {
-  const response = await fetch(`${API_BASE_URL}/tasks`, {
+export const fetchTasks = async (sortByDueDate = false) => {
+  const url = new URL(`${API_BASE_URL}/tasks`);
+  if (sortByDueDate) {
+    url.searchParams.append('sort', 'due_date');
+  }
+  
+  const response = await fetch(url, {
     headers: {
       ...getAuthHeader(),
     },

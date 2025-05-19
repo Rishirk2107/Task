@@ -17,7 +17,7 @@ const AppContent = () => {
 
   const loadTasks = async () => {
     try {
-      const data = await fetchTasks();
+      const data = await fetchTasks(sortByDueDate);
       setTasks(data);
     } catch (err) {
       setError('Failed to fetch tasks');
@@ -28,7 +28,7 @@ const AppContent = () => {
     if (user) {
       loadTasks();
     }
-  }, [user]);
+  }, [user, sortByDueDate]);
 
   const addTask = async (task) => {
     try {
@@ -68,6 +68,10 @@ const AppContent = () => {
     } catch (err) {
       setError('Failed to delete task');
     }
+  };
+
+  const handleSortToggle = () => {
+    setSortByDueDate(!sortByDueDate);
   };
 
   const filteredTasks = tasks.filter(task =>
@@ -133,7 +137,7 @@ const AppContent = () => {
             }}
           />
           <button 
-            onClick={() => setSortByDueDate(!sortByDueDate)}
+            onClick={handleSortToggle}
             style={{
               padding: '0.5rem 1rem',
               border: '1px solid #ccc',
