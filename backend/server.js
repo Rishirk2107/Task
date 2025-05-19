@@ -4,6 +4,7 @@ require('dotenv').config();
 const taskRoutes = require('./routes/tasks');
 const authRoutes = require('./routes/auth');
 const { initializeDatabase } = require('./config/db');
+const { startReminderChecker } = require('./utils/reminderChecker');
 
 const app = express();
 
@@ -28,6 +29,8 @@ initializeDatabase()
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
+      // Start the reminder checker
+      startReminderChecker();
     });
   })
   .catch((error) => {

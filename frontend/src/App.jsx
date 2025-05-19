@@ -84,11 +84,11 @@ const AppContent = () => {
           style={{
             marginTop: '1rem',
             padding: '0.5rem 1rem',
-            backgroundColor: 'transparent',
-            border: '1px solid #646cff',
-            color: '#646cff',
+            border: '1px solid #ccc',
             borderRadius: '4px',
             cursor: 'pointer',
+            background: 'white',
+            fontSize: '14px'
           }}
         >
           {showLogin ? 'Need an account? Sign up' : 'Already have an account? Login'}
@@ -105,11 +105,11 @@ const AppContent = () => {
           onClick={logout}
           style={{
             padding: '0.5rem 1rem',
-            backgroundColor: '#646cff',
-            color: 'white',
-            border: 'none',
+            border: '1px solid #ccc',
             borderRadius: '4px',
             cursor: 'pointer',
+            background: 'white',
+            fontSize: '14px'
           }}
         >
           Logout
@@ -124,9 +124,25 @@ const AppContent = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search tasks..."
-            style={{ marginRight: '10px' }}
+            style={{ 
+              marginRight: '10px',
+              padding: '0.5rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              fontSize: '14px'
+            }}
           />
-          <button onClick={() => setSortByDueDate(!sortByDueDate)}>
+          <button 
+            onClick={() => setSortByDueDate(!sortByDueDate)}
+            style={{
+              padding: '0.5rem 1rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              background: 'white',
+              fontSize: '14px'
+            }}
+          >
             {sortByDueDate ? 'Sort by Default' : 'Sort by Due Date'}
           </button>
         </div>

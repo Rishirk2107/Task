@@ -51,6 +51,9 @@ const Signup = () => {
               width: '100%',
               maxWidth: '300px',
               marginBottom: '0.5rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              fontSize: '14px'
             }}
           />
         </div>
@@ -66,6 +69,9 @@ const Signup = () => {
               width: '100%',
               maxWidth: '300px',
               marginBottom: '0.5rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              fontSize: '14px'
             }}
           />
         </div>
@@ -81,6 +87,9 @@ const Signup = () => {
               width: '100%',
               maxWidth: '300px',
               marginBottom: '0.5rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              fontSize: '14px'
             }}
           />
         </div>
@@ -88,11 +97,11 @@ const Signup = () => {
           type="submit"
           style={{
             padding: '0.5rem 1rem',
-            backgroundColor: '#646cff',
-            color: 'white',
-            border: 'none',
+            border: '1px solid #ccc',
             borderRadius: '4px',
             cursor: 'pointer',
+            background: 'white',
+            fontSize: '14px'
           }}
         >
           Sign Up

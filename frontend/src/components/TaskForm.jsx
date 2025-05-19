@@ -14,11 +14,13 @@ function TaskForm({ addTask }) {
   };
 
    const buttonStyle = {
-    border: '1px solid black',
-    padding: '5px 10px',
-    marginRight: '5px',
+    padding: '0.5rem 1rem',
+    border: '1px solid #ccc',
+    borderRadius: '4px',
     cursor: 'pointer',
     background: 'white',
+    fontSize: '14px',
+    marginRight: '5px'
   };
 
   return (
