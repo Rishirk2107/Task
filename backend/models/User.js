@@ -36,7 +36,6 @@ class User {
     try {
       const connection = await pool.getConnection();
       
-      // Check if username or email already exists
       const [existingUsers] = await connection.execute(
         'SELECT * FROM users WHERE username = ? OR email = ?',
         [username, email]

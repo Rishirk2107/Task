@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { pool } = require('../config/db');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
-// Middleware to verify JWT token
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
@@ -21,7 +21,6 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
-// Apply authentication middleware to all routes
 router.use(authenticateToken);
 
 router.get('/', async (req, res) => {
@@ -64,7 +63,6 @@ router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { completed, reminder_date } = req.body;
   try {
-    // First check if the task belongs to the user
     const [tasks] = await pool.query(
       'SELECT * FROM tasks WHERE id = ? AND user_id = ?',
       [id, req.user.userId]
@@ -99,7 +97,6 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    // First check if the task belongs to the user
     const [tasks] = await pool.query(
       'SELECT * FROM tasks WHERE id = ? AND user_id = ?',
       [id, req.user.userId]
